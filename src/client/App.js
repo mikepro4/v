@@ -9,7 +9,8 @@ import SplitText from 'react-pose-text';
 import keydown from "react-keydown";
 import classNames from "classnames"
 import { Link } from "react-router-dom";
-import { Button, Intent } from "@blueprintjs/core";
+import { Icon, Button, Intent } from "@blueprintjs/core";
+import { IconNames } from "@blueprintjs/icons";
 
 import {
 	showLeftSidebar,
@@ -49,7 +50,8 @@ class App extends Component {
 					>
 					 	<div className="sidebar-header">
 							<div className="sidebar-header-left">
-								Workbook content
+								<Icon icon="menu" />
+								<span className="sidebar-title">Workbook contents</span>
 							</div>
 
 							<div className="sidebar-header-right">
@@ -70,6 +72,7 @@ class App extends Component {
 								{!this.props.leftSidebarVisible ? (
 									<Button
 										minimal={true}
+										icon="menu"
 										text="Workbook contents"
 										onClick={() => { this.props.showLeftSidebar()}}
 									/>
@@ -78,6 +81,7 @@ class App extends Component {
 								<Button
 									minimal={true}
 									text="Global code"
+									icon="code"
 									className={
 										classNames({
 											"button-active": this.props.globalCodeVisible
@@ -92,6 +96,7 @@ class App extends Component {
 								<Button
 									minimal={true}
 									text="Paths"
+									icon="path"
 									className={
 										classNames({
 											"button-active": this.props.pathsVisible
@@ -103,6 +108,7 @@ class App extends Component {
 								<Button
 									minimal={true}
 									text="Graph"
+									icon="graph"
 									className={
 										classNames({
 											"button-active": this.props.graphVisible
@@ -117,6 +123,7 @@ class App extends Component {
 									<Button
 										minimal={true}
 										text="Console"
+										icon="console"
 										onClick={() => { this.props.showRightSidebar()}}
 									/>
 								) : ''}
@@ -131,7 +138,12 @@ class App extends Component {
 									}, "main-area-section-global-code")
 								}
 							>
-								global code
+								<Button
+									minimal={true}
+									icon="cross"
+									className="global-code-close"
+									onClick={() => { this.props.hideGlobalCode()}}
+								/>
 							</div>
 
 							<div className="main-area-section-general">
@@ -156,7 +168,8 @@ class App extends Component {
 					>
 						<div className="sidebar-header">
 							<div className="sidebar-header-left">
-								Console
+								<Icon icon="console" />
+								<span className="sidebar-title">Console</span>
 							</div>
 
 							<div className="sidebar-header-right">

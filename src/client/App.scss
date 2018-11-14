@@ -40,7 +40,7 @@ $animation-easing: cubic-bezier(0.02, 0.41, 0.42, 0.8);
       flex-shrink: 0;
       border-right: $border;
       width: 0;
-      transition: all .2s $animation-easing;
+      transition: all .15s $animation-easing;
       overflow: hidden;
 
       &.visible {
@@ -69,7 +69,11 @@ $animation-easing: cubic-bezier(0.02, 0.41, 0.42, 0.8);
           align-items: center;
           justify-content: center;
           display: flex;
-          padding-left: 10px;
+          padding-left: 6px;
+
+          button {
+            margin: 0 5px 0 0;
+          }
         }
 
         .nav-header-center {
@@ -82,6 +86,10 @@ $animation-easing: cubic-bezier(0.02, 0.41, 0.42, 0.8);
           align-items: center;
           justify-content: center;
           z-index: 1;
+
+          button {
+            margin: 0 2.5px 0 2.5px;
+          }
         }
 
         .nav-header-right {
@@ -90,7 +98,7 @@ $animation-easing: cubic-bezier(0.02, 0.41, 0.42, 0.8);
           align-items: center;
           justify-content: center;
           display: flex;
-          padding-right: 10px;
+          padding-right: 6px;
         }
       }
 
@@ -99,6 +107,7 @@ $animation-easing: cubic-bezier(0.02, 0.41, 0.42, 0.8);
         flex-direction: column;
         flex-grow: 1;
         flex-shrink: 1;
+        background: $light-gray5;
 
         .main-area-section-global-code {
           height: 0;
@@ -106,7 +115,15 @@ $animation-easing: cubic-bezier(0.02, 0.41, 0.42, 0.8);
           flex-shrink: 0;
           border-bottom: $border;
           opacity: 0;
-          transition: all .2s $animation-easing;
+          transition: all .15s $animation-easing;
+          background: $white;
+          position: relative;
+
+          .global-code-close {
+            top: 5px;
+            right: 5px;
+            position: absolute;
+          }
 
           &.visible {
             opacity: 1;
@@ -116,6 +133,7 @@ $animation-easing: cubic-bezier(0.02, 0.41, 0.42, 0.8);
 
         .main-area-section-general {
           flex-grow: 1;
+
         }
       }
     }
@@ -126,7 +144,7 @@ $animation-easing: cubic-bezier(0.02, 0.41, 0.42, 0.8);
       flex-shrink: 0;
       border-left: $border;
       opacity: 0;
-      transition: all .2s $animation-easing;
+      transition: all .15s $animation-easing;
       overflow: hidden;
 
       &.visible {
@@ -139,10 +157,26 @@ $animation-easing: cubic-bezier(0.02, 0.41, 0.42, 0.8);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px;
+      padding-left: 10px;
+      padding-right: 7px;
       height: $headerHeight;
       border-bottom: $border;
       white-space: nowrap;
+
+      path {
+        fill: $gray1;
+      }
+
+      .sidebar-title {
+        font-size: 12px;
+        letter-spacing: 0.7px;
+        text-transform: uppercase;
+        font-weight: 500;
+        margin: 0 0 0 7px;
+        color: $dark-gray3;
+        position: relative;
+        top: -1px;
+      }
     }
   }
 }
@@ -155,6 +189,12 @@ $animation-easing: cubic-bezier(0.02, 0.41, 0.42, 0.8);
   &.button-active {
     background: rgba($blue4, 0.15);
     color: $blue4;
+
+    .bp3-icon {
+      path {
+        fill: $blue4;
+      }
+    }
 
     &:hover {
       background: rgba($blue4, 0.2);
