@@ -1,9 +1,13 @@
 {
 	"name": "OF",
 	"version": "1.0.0",
+	"engines": {
+		"node": "10.x",
+		"npm": "6.4.1"
+	},
 	"description": "OF",
 	"main": "index.js",
-	"repository": "https://github.com/mikepro4/of",
+	"repository": "https://github.com/mikepro4/v",
 	"author": "Mikhail Proniushkin",
 	"scripts": {
 		"dev:build-client": "webpack -w --config webpack.client.config.js",
@@ -13,9 +17,6 @@
 		"build": "NODE_ENV=production webpack --config webpack.client.config.js -p && webpack --config webpack.server.config.js -p",
 		"heroku-postbuild": "npm install && npm run build",
 		"start": "node build/bundle.js"
-	},
-	"engines": {
-		"node": "8.7.0"
 	},
 	"license": "ISC",
 	"devDependencies": {

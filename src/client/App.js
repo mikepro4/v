@@ -250,6 +250,30 @@ class App extends Component {
 													className="fullscreen"
 													onClick={() => { this.transitionMinimimap()}}
 												/>
+
+												<div className="mg-nodes-container">
+													<div className={
+														classNames({
+															full: this.state.transitionMinimimap
+														}, "mg-node")
+													}/>
+
+													<div className="mg-node-divider"/>
+
+													<div className={
+														classNames({
+															full: this.state.transitionMinimimap
+														}, "mg-node")
+													}/>
+
+													<div className="mg-node-divider"/>
+
+													<div className={
+														classNames({
+															full: this.state.transitionMinimimap
+														}, "mg-node")
+													}/>
+												</div>
 											</div>
 
 											<div className="path-list">
@@ -311,7 +335,17 @@ class App extends Component {
 
 								{this.props.graphVisible ? (
 									<div className="graph-section">
-										Graph
+										<div className="graph-nodes-container">
+											<div className="graph-node"> node content</div>
+
+											<div className="graph-node-divider"/>
+
+											<div className="graph-node"> node content</div>
+
+											<div className="graph-node-divider"/>
+
+											<div className="graph-node"> node content</div>
+										</div>
 									</div>
 								) : ""}
 							</div>
