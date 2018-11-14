@@ -26,6 +26,23 @@ import {
 FocusStyleManager.onlyShowFocusOnTabs();
 
 class App extends Component {
+	state = {
+		transitionMinimimap: false
+	}
+
+	transitionMinimimap = () => {
+		this.setState({
+			transitionMinimimap: true
+		})
+
+		setTimeout(() => {
+			this.props.showGraph();
+
+			this.setState({
+				transitionMinimimap: false
+			})
+		}, 200)
+	}
 
 	render() {
 		return (
@@ -61,6 +78,67 @@ class App extends Component {
 									onClick={() => { this.props.hideLeftSidebar()}}
 								/>
 							</div>
+						</div>
+
+						<div className="dataset-list">
+
+							<div className="dataset-search">
+								<Icon icon="search" />
+								<div className="search-title">Search datasets...</div>
+							</div>
+
+							<ul className="dummy-list">
+								<li className="single-dummy-item">
+									<div className="dummy-icon"/>
+									<div className="dummy-bar dummy-bar-3"/>
+								</li>
+
+								<li className="single-dummy-item">
+									<div className="dummy-icon"/>
+									<div className="dummy-bar dummy-bar-2"/>
+								</li>
+
+								<li className="single-dummy-item">
+									<div className="dummy-icon"/>
+									<div className="dummy-bar dummy-bar-4"/>
+								</li>
+
+								<li className="single-dummy-item">
+									<div className="dummy-icon"/>
+									<div className="dummy-bar dummy-bar-1"/>
+								</li>
+
+								<li className="single-dummy-item">
+									<div className="dummy-icon"/>
+									<div className="dummy-bar dummy-bar-3"/>
+								</li>
+
+								<li className="single-dummy-item">
+									<div className="dummy-icon"/>
+									<div className="dummy-bar dummy-bar-3"/>
+								</li>
+
+								<li className="single-dummy-item">
+									<div className="dummy-icon"/>
+									<div className="dummy-bar dummy-bar-2"/>
+								</li>
+
+								<li className="single-dummy-item">
+									<div className="dummy-icon"/>
+									<div className="dummy-bar dummy-bar-4"/>
+								</li>
+
+								<li className="single-dummy-item">
+									<div className="dummy-icon"/>
+									<div className="dummy-bar dummy-bar-1"/>
+								</li>
+
+								<li className="single-dummy-item">
+									<div className="dummy-icon"/>
+									<div className="dummy-bar dummy-bar-3"/>
+								</li>
+							</ul>
+
 						</div>
 					</div>
 
@@ -144,15 +222,97 @@ class App extends Component {
 									className="global-code-close"
 									onClick={() => { this.props.hideGlobalCode()}}
 								/>
+
+								<div className="global-code-container">
+									<div className="dummy-line-1"/>
+									<div className="dummy-line-2"/>
+									<div className="dummy-line-3"/>
+									<div className="dummy-line-4"/>
+									<div className="dummy-line-5"/>
+									<div className="dummy-line-6"/>
+								</div>
 							</div>
 
 							<div className="main-area-section-general">
 								{this.props.pathsVisible ? (
-									<div>Paths</div>
+									<div className="paths-section">
+
+										<div className="paths-left-section">
+											<div className={
+													classNames({
+														full: this.state.transitionMinimimap
+													}, "path-mininigraph")
+												}
+											>
+												<Button
+													minimal={true}
+													icon="fullscreen"
+													className="fullscreen"
+													onClick={() => { this.transitionMinimimap()}}
+												/>
+											</div>
+
+											<div className="path-list">
+
+												<div className="section-title">
+													Transformation paths
+												</div>
+
+												<ul className="dummy-list">
+													<li className="single-dummy-item single-dummy-item-active">
+														<div className="dummy-icon"/>
+														<div className="dummy-bar dummy-bar-3"/>
+													</li>
+
+													<li className="single-dummy-item">
+														<div className="dummy-icon"/>
+														<div className="dummy-bar dummy-bar-2"/>
+													</li>
+
+													<li className="single-dummy-item">
+														<div className="dummy-icon"/>
+														<div className="dummy-bar dummy-bar-4"/>
+													</li>
+
+													<li className="single-dummy-item">
+														<div className="dummy-icon"/>
+														<div className="dummy-bar dummy-bar-1"/>
+													</li>
+
+													<li className="single-dummy-item">
+														<div className="dummy-icon"/>
+														<div className="dummy-bar dummy-bar-3"/>
+													</li>
+												</ul>
+
+											</div>
+										</div>
+
+										<div className="paths-right-section">
+											<div className="path-container">
+												<div className="path-title">Path 1</div>
+												<div className="path-description">
+													Path description here...
+												</div>
+
+												<div className="single-path-step"/>
+												<div className="path-arrow"><Icon icon="arrow-down" /></div>
+												<div className="single-path-step"/>
+												<div className="path-arrow"><Icon icon="arrow-down" /></div>
+												<div className="single-path-step"/>
+												<div className="path-arrow"><Icon icon="arrow-down" /></div>
+												<div className="single-path-step"/>
+												<div className="path-arrow"><Icon icon="arrow-down" /></div>
+												<div className="single-path-step"/>
+											</div>
+										</div>
+									</div>
 								) : ""}
 
 								{this.props.graphVisible ? (
-									<div>Graph</div>
+									<div className="graph-section">
+										Graph
+									</div>
 								) : ""}
 							</div>
 						</div>
@@ -179,6 +339,14 @@ class App extends Component {
 									onClick={() => { this.props.hideRightSidebar()}}
 								/>
 							</div>
+						</div>
+
+						<div className="console-content">
+							console content
+						</div>
+
+						<div className="console-bottom">
+						bottom
 						</div>
 					</div>
 				</div>
