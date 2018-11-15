@@ -2,7 +2,7 @@
 	"name": "OF",
 	"version": "1.0.0",
 	"engines": {
-		"node": "10.x",
+		"node": "11.1.0",
 		"npm": "6.4.1"
 	},
 	"description": "OF",

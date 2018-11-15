@@ -306,6 +306,7 @@ ul.dummy-list {
       display: flex;
       justify-content: center;
       align-content: center;
+      z-index: 10;
 
       &.full {
         position: absolute;
@@ -376,6 +377,13 @@ ul.dummy-list {
     background: $white;
     border-radius: 3px;
     border: $border;
+    position: relative;
+
+    .fullScreen {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
   }
 
   .graph-nodes-container {
@@ -409,54 +417,52 @@ ul.dummy-list {
   }
 }
 
-.global-code-container {
-  .dummy-line-1 {
-    margin: 20px 0 0 20px;
-    width: 300px;
-    height: 15px;
-    background: $light-gray3;
-    border-radius: 3px;
-  }
+.dummy-line-1 {
+  margin: 20px 0 0 20px;
+  width: 300px;
+  height: 15px;
+  background: $light-gray3;
+  border-radius: 3px;
+}
 
-  .dummy-line-2 {
-    margin: 10px 0 0 50px;
-    width: 400px;
-    height: 15px;
-    background: $light-gray3;
-    border-radius: 3px;
-  }
+.dummy-line-2 {
+  margin: 10px 0 0 50px;
+  width: 400px;
+  height: 15px;
+  background: $light-gray3;
+  border-radius: 3px;
+}
 
-  .dummy-line-3 {
-    margin: 10px 0 0 50px;
-    width: 320px;
-    height: 15px;
-    background: $light-gray3;
-    border-radius: 3px;
-  }
+.dummy-line-3 {
+  margin: 10px 0 0 50px;
+  width: 320px;
+  height: 15px;
+  background: $light-gray3;
+  border-radius: 3px;
+}
 
-  .dummy-line-4 {
-    margin: 10px 0 0 80px;
-    width: 150px;
-    height: 15px;
-    background: $light-gray3;
-    border-radius: 3px;
-  }
+.dummy-line-4 {
+  margin: 10px 0 0 80px;
+  width: 150px;
+  height: 15px;
+  background: $light-gray3;
+  border-radius: 3px;
+}
 
-  .dummy-line-5 {
-    margin: 10px 0 0 80px;
-    width: 350px;
-    height: 15px;
-    background: $light-gray3;
-    border-radius: 3px;
-  }
+.dummy-line-5 {
+  margin: 10px 0 0 80px;
+  width: 350px;
+  height: 15px;
+  background: $light-gray3;
+  border-radius: 3px;
+}
 
-  .dummy-line-6 {
-    margin: 10px 0 0 50px;
-    width: 70px;
-    height: 15px;
-    background: $light-gray3;
-    border-radius: 3px;
-  }
+.dummy-line-6 {
+  margin: 10px 0 0 50px;
+  width: 70px;
+  height: 15px;
+  background: $light-gray3;
+  border-radius: 3px;
 }
 
 .paths-right-section {
@@ -493,5 +499,60 @@ ul.dummy-list {
     height: 120px;
     border: $border;
     margin: 10px 0 10px 0;
+    position: relative;
+
+    .fullScreen {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+  }
+}
+
+.full-screen-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  background: $white;
+  display: flex;
+  flex-direction: column;
+
+  path {
+    fill: $gray3;
+  }
+
+  .full-screen-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    height: 37px;
+    border-bottom: $border;
+    align-items: center;
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    .full-screen-title {
+      position: relative;
+      top: -1px;
+    }
+  }
+
+  .full-screen-code-area {
+    flex-grow: 1;
+    flex-shrink: 1;
+    display: flex;
+    border-bottom: $border;
+    flex-direction: column;
+    background: $light-gray5
+  }
+
+  .full-screen-output {
+    height: 100px;
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 0;
   }
 }

@@ -27,6 +27,7 @@ FocusStyleManager.onlyShowFocusOnTabs();
 
 class App extends Component {
 	state = {
+		fullScreen: false,
 		transitionMinimimap: false
 	}
 
@@ -180,7 +181,13 @@ class App extends Component {
 											"button-active": this.props.pathsVisible
 										})
 									}
-									onClick={() => { this.props.showPaths()}}
+									onClick={() => {
+										this.props.showPaths()
+
+										this.setState({
+											fullScreen: false
+										})
+									}}
 								/>
 
 								<Button
@@ -192,7 +199,14 @@ class App extends Component {
 											"button-active": this.props.graphVisible
 										})
 									}
-									onClick={() => { this.props.showGraph()}}
+									onClick={() => {
+										this.props.showGraph()
+
+										this.setState({
+											fullScreen: false
+										})
+
+									}}
 								/>
 							</div>
 
@@ -234,6 +248,50 @@ class App extends Component {
 							</div>
 
 							<div className="main-area-section-general">
+
+								{
+									this.state.fullScreen ? (
+										<div className="full-screen-container">
+
+											<div className="full-screen-header">
+
+												<div className="full-screen-title">
+													<Icon icon="code" />
+													<span className="section-title">TRANSFORMATION EDITOR</span>
+												</div>
+
+
+												<Button
+													minimal={true}
+													rightIcon="cross"
+													text={`Back to ${this.props.pathsVisible ? "Path 1" : "Graph"}`}
+													onClick={() => { this.setState({
+														fullScreen: false
+													})}}
+												/>
+
+											</div>
+
+											<div className="full-screen-code-area">
+												<div className="dummy-line-1"/>
+												<div className="dummy-line-2"/>
+												<div className="dummy-line-3"/>
+												<div className="dummy-line-4"/>
+												<div className="dummy-line-5"/>
+												<div className="dummy-line-6"/>
+
+												<div className="dummy-line-1"/>
+												<div className="dummy-line-2"/>
+												<div className="dummy-line-3"/>
+												<div className="dummy-line-4"/>
+												<div className="dummy-line-5"/>
+												<div className="dummy-line-6"/>
+											</div>
+
+											<div className="full-screen-output">output</div>
+										</div>
+									) : ""
+								}
 								{this.props.pathsVisible ? (
 									<div className="paths-section">
 
@@ -319,15 +377,73 @@ class App extends Component {
 													Path description here...
 												</div>
 
-												<div className="single-path-step"/>
+												<div className="single-path-step">
+													<Button
+														minimal={true}
+														icon="fullscreen"
+														className="fullscreen"
+														onClick={() => { this.setState({
+																fullScreen: true
+															})}
+														}
+													/>
+												</div>
+
 												<div className="path-arrow"><Icon icon="arrow-down" /></div>
-												<div className="single-path-step"/>
+
+												<div className="single-path-step">
+													<Button
+														minimal={true}
+														icon="fullscreen"
+														className="fullscreen"
+														onClick={() => { this.setState({
+																fullScreen: true
+															})}
+														}
+													/>
+												</div>
+
 												<div className="path-arrow"><Icon icon="arrow-down" /></div>
-												<div className="single-path-step"/>
+
+												<div className="single-path-step">
+													<Button
+														minimal={true}
+														icon="fullscreen"
+														className="fullscreen"
+														onClick={() => { this.setState({
+																fullScreen: true
+															})}
+														}
+													/>
+												</div>
+
 												<div className="path-arrow"><Icon icon="arrow-down" /></div>
-												<div className="single-path-step"/>
+
+												<div className="single-path-step">
+													<Button
+														minimal={true}
+														icon="fullscreen"
+														className="fullscreen"
+														onClick={() => { this.setState({
+																fullScreen: true
+															})}
+														}
+													/>
+												</div>
+
 												<div className="path-arrow"><Icon icon="arrow-down" /></div>
-												<div className="single-path-step"/>
+
+												<div className="single-path-step">
+													<Button
+														minimal={true}
+														icon="fullscreen"
+														className="fullscreen"
+														onClick={() => { this.setState({
+																fullScreen: true
+															})}
+														}
+													/>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -336,15 +452,54 @@ class App extends Component {
 								{this.props.graphVisible ? (
 									<div className="graph-section">
 										<div className="graph-nodes-container">
-											<div className="graph-node"> node content</div>
+											<div className="graph-node">
+
+												node content
+
+												<Button
+													minimal={true}
+													icon="fullscreen"
+													className="fullscreen"
+													onClick={() => { this.setState({
+															fullScreen: true
+														})}
+													}
+												/>
+											</div>
 
 											<div className="graph-node-divider"/>
 
-											<div className="graph-node"> node content</div>
+											<div className="graph-node">
+
+												node content
+
+												<Button
+													minimal={true}
+													icon="fullscreen"
+													className="fullscreen"
+													onClick={() => { this.setState({
+															fullScreen: true
+														})}
+													}
+												/>
+											</div>
 
 											<div className="graph-node-divider"/>
 
-											<div className="graph-node"> node content</div>
+											<div className="graph-node">
+
+												node content
+
+												<Button
+													minimal={true}
+													icon="fullscreen"
+													className="fullscreen"
+													onClick={() => { this.setState({
+															fullScreen: true
+														})}
+													}
+												/>
+											</div>
 										</div>
 									</div>
 								) : ""}
