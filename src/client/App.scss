@@ -27,6 +27,10 @@ $animation-easing: cubic-bezier(0.02, 0.41, 0.42, 0.8);
       height: 50px;
       background: $white;
       border-bottom: $border;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0 10px 0 0;
     }
   }
 
@@ -119,6 +123,21 @@ $animation-easing: cubic-bezier(0.02, 0.41, 0.42, 0.8);
           position: relative;
           background: $white;
 
+          .key {
+            position: absolute;
+            top: 10px;
+            right: 30px;
+            opacity: 0;
+            transition: all .2s;
+          }
+
+          &:hover {
+            .key {
+              opacity: 1
+            }
+          }
+
+
           .global-code-close {
             top: 5px;
             right: 5px;
@@ -185,6 +204,23 @@ $animation-easing: cubic-bezier(0.02, 0.41, 0.42, 0.8);
       border-bottom: $border;
       white-space: nowrap;
 
+      .sidebar-header-right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .key {
+        opacity: 0;
+        transition: all .2s;
+      }
+
+      &:hover {
+        .key {
+          opacity: 1
+        }
+      }
+
       path {
         fill: $gray1;
       }
@@ -208,7 +244,11 @@ $animation-easing: cubic-bezier(0.02, 0.41, 0.42, 0.8);
   font-weight: 400;
   transition: all .2s $animation-easing;
 
-  &.button-active {
+  &:focus {
+    background: none
+  }
+
+  &.button-active, &.button-active:focus {
     background: rgba($blue4, 0.15);
     color: $blue4;
 
@@ -492,6 +532,18 @@ ul.dummy-list {
     fill: $gray3;
   }
 
+  .steps-container {
+    margin: 30px 0 0 0;
+  }
+
+  .single-step-container {
+    &:last-child {
+      .path-arrow {
+        display: none;
+      }
+    }
+  }
+
   .single-path-step {
     width: 100%;
     border-radius: 3px;
@@ -500,6 +552,11 @@ ul.dummy-list {
     border: $border;
     margin: 10px 0 10px 0;
     position: relative;
+
+    &.single-path-step-active {
+      border: 1px solid $blue4;
+      box-shadow: 0 0 0 2px rgba(43,149,214,0.21);
+    }
 
     .fullScreen {
       position: absolute;
@@ -521,23 +578,57 @@ ul.dummy-list {
   flex-direction: column;
 
   path {
-    fill: $gray3;
+    fill: $gray2;
   }
 
   .full-screen-header {
     display: flex;
     justify-content: space-between;
-    padding: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
     height: 37px;
     border-bottom: $border;
     align-items: center;
     flex-grow: 0;
     flex-shrink: 0;
+    position: relative;
+
+    .full-screen-header-left {
+      display: flex;
+      align-content: center;
+      justify-content: center;
+    }
 
     .full-screen-title {
+      margin: 6px 0 0 17px;
+    }
+
+    .button-back {
       position: relative;
       top: -1px;
+
+      &:after {
+        content: "";
+        height: 25px;
+        position: absolute;
+        right: -5px;
+        width: 1px;
+        background: $light-gray4;
+        top: 3px;
+      }
     }
+
+    // .full-screen-title {
+    //   position: absolute;
+    //   top: 0;
+    //   right: 0;
+    //   left: 0;
+    //   bottom: 0;
+    //   display: flex;
+    //   align-items: center;
+    //   justify-content: center;
+    //   z-index: 1
+    // }
   }
 
   .full-screen-code-area {
@@ -554,5 +645,85 @@ ul.dummy-list {
     display: flex;
     flex-grow: 0;
     flex-shrink: 0;
+  }
+}
+
+.help-container {
+  width: 360px;
+
+  .help-section {
+    padding: 15px;
+    border-bottom: 1px solid $light-gray5;
+
+    .help-section-title {
+      font-size: 12px;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin: 0 0 12px 0;
+      color: $dark-gray1;
+    }
+
+    ul.help-action-list {
+      li.help-action {
+        display: flex;
+        font-size: 14px;
+        color: $gray2;
+        justify-content: space-between;
+        margin: 0 0 10px 0;
+        cursor: pointer;
+
+        .help-action-description {
+          font-weight: 300;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        .key {
+          font-size: 13px;
+          color: $dark-gray5;
+          background: $light-gray4;
+        }
+
+        &:hover {
+          .help-action-description {
+            color: $blue4
+          }
+
+          .key {
+            background: rgba($blue4, 0.15);
+            color: $blue4;
+          }
+        }
+      }
+    }
+  }
+}
+
+.close-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.key {
+  border-radius: 3px;
+  background: $light-gray5;
+  color: $gray1;
+  font-size: 10px;
+  font-weight: 400;
+  padding: 4px 8px;
+  margin: 0 3px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 0;
+  cursor: pointer;
+
+  &:hover {
+    background: $light-gray4;
+    color: $dark-gray3;
   }
 }
