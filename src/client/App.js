@@ -264,7 +264,7 @@ class App extends Component {
 				>
 					<Button
 						minimal={true}
-						icon="arrow-right"
+						icon="fullscreen"
 						className="fullscreen"
 						onClick={() => { this.setState({
 								fullScreen: true
