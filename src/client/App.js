@@ -55,19 +55,19 @@ class App extends Component {
 			{
 				id: 2,
 				length: 3,
-				name: "Scenraio 1",
+				name: "Scenario testing 1",
 				steps: 5
 			},
 			{
 				id: 3,
 				length: 3,
-				name: "Scneario 2",
+				name: "Scenario testing 2",
 				steps: 3
 			},
 			{
 				id: 4,
 				length: 4,
-				name: "Analysis",
+				name: "Cohort definition",
 				steps: 4
 			}
 		]
